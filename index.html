@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dino Run Jump Cactus Game JavaScript</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <main>
-        <h1>Welcome to My Website</h1>  
+        <h1>Dino Run Jump Cactus Game JavaScript</h1>  
     </main>
-    
-	<script src="main.js"></script>
+    <div class="game" id="canvas" onclick="jump()">
+        <div id="character"></div>
+        <div id="block"></div>
+    </div>
+    <p>Score: <span id="scoreSpan"></span></p>
+	<script src="js/main.js"></script>
   </body>
 </html>
