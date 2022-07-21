@@ -1,31 +1,40 @@
-var canvas = document.getElementById("canvas");
+
 var character = document.getElementById("character");
 var block = document.getElementById("block");
-var counter=0;
+var counter = 0;
 
-document.addEventListener('keypress', event => {
-    // Space
-    if (event.keyCode === 32) {
-        jump()
-    }
-})
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.addEventListener('keypress', event => {
+        // Space
+        if (event.keyCode === 32) {
+            jump()
+        }
+    })
+});
 
 function jump() {
-    if(character.classList == "animate"){return}
+    if(character.classList === "animate") {
+        return
+    }
+
     character.classList.add("animate");
-    setTimeout(function(){
+
+    setTimeout(function() {
         character.classList.remove("animate");
-    },300);
+    }, 300);
 }
-var checkDead = setInterval(function() {
+
+setInterval(function() {
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-    if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
+
+    if(blockLeft < 20 && blockLeft > -20 && characterTop >= 130) {
         block.style.animation = "none";
-        alert("Game Over. score: "+Math.floor(counter/100));
-        counter=0;
+        alert("Game Over! Your Score: " + Math.floor(counter/100));
+        counter = 0;
         block.style.animation = "block 1s infinite linear";
-    }else{
+    } else {
         counter++;
         document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
     }
